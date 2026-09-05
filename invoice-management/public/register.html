@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Access · Invoice Management System</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="auth-wrapper" style="max-width:560px;">
+    <div class="card">
+      <h1>Request Access</h1>
+      <p style="color:var(--text-muted); font-size:0.9rem;">
+        Your account will be reviewed by an administrator before you can sign in.
+      </p>
+      <div id="alertBox"></div>
+      <form id="registerForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required maxlength="150">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" required maxlength="190">
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" maxlength="30">
+          </div>
+          <div class="field">
+            <label for="organizationName">Business / Organization (optional)</label>
+            <input type="text" id="organizationName" maxlength="190">
+          </div>
+        </div>
+        <div class="field">
+          <label for="reason">Why do you need access?</label>
+          <textarea id="reason" required maxlength="1000"></textarea>
+        </div>
+        <div class="field">
+          <label for="verificationNote">How can the Owner verify your request? (optional)</label>
+          <textarea id="verificationNote" maxlength="1000"></textarea>
+        </div>
+        <div class="field">
+          <label for="password">Password (min 10 characters)</label>
+          <input type="password" id="password" required minlength="10" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn" id="submitBtn">Submit Request</button>
+      </form>
+      <p style="margin-top:16px; font-size:0.9rem; color:var(--text-muted);">
+        Already approved? <a href="/index.html">Sign in</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/register.js"></script>
+</body>
+</html>

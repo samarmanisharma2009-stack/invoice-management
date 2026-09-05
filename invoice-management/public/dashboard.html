@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · Invoice Management System</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🧾 Invoice Manager</div>
+    <nav>
+      <a href="/dashboard.html">Invoices</a>
+      <a href="/invoice.html">New Invoice</a>
+      <button id="logoutBtn">Log out</button>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div id="alertBox"></div>
+
+    <div class="card">
+      <h1>Your Invoices</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Invoice #</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="invoiceTableBody"></tbody>
+      </table>
+      <p id="emptyState" class="hidden" style="color:var(--text-muted); margin-top:16px;">
+        No invoices yet. <a href="/invoice.html">Create your first invoice</a>.
+      </p>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
