@@ -1,0 +1,78 @@
+/* ==========================================================================
+   admin.css — Styles for admin.html
+   ========================================================================== */
+
+.admin-tabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.admin-tab {
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.admin-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.admin-tab:hover {
+  color: var(--color-primary);
+}
+
+.admin-tab-count {
+  display: inline-block;
+  background-color: var(--color-bg);
+  color: var(--color-text-muted);
+  border-radius: 999px;
+  padding: 0 0.5em;
+  font-size: 0.75rem;
+  margin-left: var(--space-1);
+}
+
+.admin-tab.active .admin-tab-count {
+  background-color: #eaf1fe;
+  color: var(--color-primary);
+}
+
+.admin-panel {
+  display: none;
+}
+
+.admin-panel.active {
+  display: block;
+}
+
+.verification-note-box {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-size: 0.875rem;
+  max-width: 420px;
+  white-space: pre-wrap;
+}
+
+.role-select {
+  width: auto;
+  display: inline-block;
+  padding: 0.3em 0.5em;
+  font-size: 0.8125rem;
+}
+
+.admin-actions-cell {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
