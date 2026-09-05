@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — Invoice Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">🧾 InvoiceHub</a>
+      <ul class="navbar-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="invoices.html">Invoices</a></li>
+        <li><a href="customers.html">Customers</a></li>
+        <li><a href="admin.html" data-admin-only style="display:none;">Admin</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+      </ul>
+      <div class="navbar-user">
+        <span data-user-name>Loading…</span>
+        <button class="btn btn-secondary btn-sm" data-logout>Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>Profile</h1>
+          <p class="text-muted">Your account details.</p>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+        <div class="card">
+          <div class="card-header">
+            <h2>Account</h2>
+            <span class="profile-role-badge">
+              Role: <span class="badge badge-approved" id="profile-role">user</span>
+            </span>
+          </div>
+
+          <div id="profile-alert"></div>
+
+          <form id="profile-form">
+            <div class="form-group">
+              <label for="profile-email">Email address</label>
+              <input type="email" id="profile-email" disabled />
+              <p class="form-hint">Email addresses cannot be changed from this page.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="profile-fullName">Full name</label>
+              <input type="text" id="profile-fullName" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="profile-phone">Phone number <span class="label-optional">(optional)</span></label>
+                <input type="tel" id="profile-phone" />
+              </div>
+              <div class="form-group">
+                <label for="profile-organizationName">Organization / business name <span class="label-optional">(optional)</span></label>
+                <input type="text" id="profile-organizationName" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Account status</label>
+              <span class="badge badge-approved" id="profile-status">approved</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="profile-save-btn">Save changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Invoice Management System — a CS50 Final Project.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

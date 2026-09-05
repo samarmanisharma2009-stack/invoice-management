@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">🧾 InvoiceHub</a>
+      <ul class="navbar-links">
+        <li><a href="login.html">Log In</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Simple invoice management, without the complexity.</h1>
+        <p>
+          Create customers, build invoices, track payments, and manage your
+          billing — all from a lightweight web app backed by Firebase
+          Authentication and Cloud Firestore.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary">Create an account</a>
+          <a href="login.html" class="btn btn-secondary">Log in</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-grid">
+      <div class="container">
+        <div class="grid grid-cols-3">
+          <div class="feature-card">
+            <h3>Approval-based access</h3>
+            <p>
+              New accounts start as pending. An administrator reviews and
+              approves each request before invoice access is granted.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Customers &amp; invoices</h3>
+            <p>
+              Manage your customer list and create invoices with line items,
+              tax, and discounts — with totals calculated automatically.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Secured by Firestore Rules</h3>
+            <p>
+              Every user's data is isolated at the database level, so no one
+              can read or modify another user's invoices or customers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="card">
+          <h2>How it works</h2>
+          <ol>
+            <li>Register for an account with a short verification note.</li>
+            <li>Wait for an administrator to review and approve your request.</li>
+            <li>Once approved, log in to create customers and invoices.</li>
+            <li>Track invoice status: Draft, Pending, Paid, or Cancelled.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Invoice Management System — a CS50 Final Project. Not intended for production use.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { redirectIfAuthenticated } from "./js/auth.js";
+    // If someone who is already signed in and approved visits the landing
+    // page, send them straight to their dashboard.
+    redirectIfAuthenticated();
+  </script>
+</body>
+</html>

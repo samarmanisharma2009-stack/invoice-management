@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customers — Invoice Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">🧾 InvoiceHub</a>
+      <ul class="navbar-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="invoices.html">Invoices</a></li>
+        <li><a href="customers.html" class="active">Customers</a></li>
+        <li><a href="admin.html" data-admin-only style="display:none;">Admin</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+      <div class="navbar-user">
+        <span data-user-name>Loading…</span>
+        <button class="btn btn-secondary btn-sm" data-logout>Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>Customers</h1>
+          <p class="text-muted">Manage the customers you send invoices to.</p>
+        </div>
+        <button class="btn btn-primary" id="new-customer-btn">+ New customer</button>
+      </div>
+
+      <div class="toolbar">
+        <input type="text" class="search-input" id="search-input" placeholder="Search customers by name or email…" />
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="customers-body">
+              <tr><td colspan="5" class="table-empty">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add / Edit customer modal -->
+  <div class="modal-overlay hidden" id="customer-modal-overlay">
+    <div class="modal">
+      <h2 id="customer-modal-title">New customer</h2>
+      <form id="customer-form">
+        <input type="hidden" id="customer-id" />
+        <div class="form-group">
+          <label for="customer-name">Name</label>
+          <input type="text" id="customer-name" required />
+        </div>
+        <div class="form-group">
+          <label for="customer-email">Email <span class="label-optional">(optional)</span></label>
+          <input type="email" id="customer-email" />
+        </div>
+        <div class="form-group">
+          <label for="customer-phone">Phone <span class="label-optional">(optional)</span></label>
+          <input type="tel" id="customer-phone" />
+        </div>
+        <div class="form-group">
+          <label for="customer-address">Address <span class="label-optional">(optional)</span></label>
+          <textarea id="customer-address"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="customer-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="customer-save-btn">Save customer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirmation modal -->
+  <div class="modal-overlay hidden" id="delete-modal-overlay">
+    <div class="modal">
+      <h2>Delete customer?</h2>
+      <p class="text-muted">This cannot be undone. Existing invoices referencing this customer will keep their stored customer name.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="delete-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="delete-confirm-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Invoice Management System — a CS50 Final Project.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/customers.js"></script>
+</body>
+</html>

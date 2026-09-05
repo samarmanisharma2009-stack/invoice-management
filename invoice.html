@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice — Invoice Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <nav class="navbar no-print">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">🧾 InvoiceHub</a>
+      <ul class="navbar-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="invoices.html" class="active">Invoices</a></li>
+        <li><a href="customers.html">Customers</a></li>
+        <li><a href="admin.html" data-admin-only style="display:none;">Admin</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+      <div class="navbar-user">
+        <span data-user-name>Loading…</span>
+        <button class="btn btn-secondary btn-sm" data-logout>Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="page-header no-print">
+        <div>
+          <h1 id="page-title">New invoice</h1>
+          <p class="text-muted">Fill in the details below, then save.</p>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-secondary" id="print-btn">Print</button>
+          <a href="invoices.html" class="btn btn-secondary">Back to invoices</a>
+        </div>
+      </div>
+
+      <form id="invoice-form" class="card">
+        <h2>Invoice #<span id="invoice-number-display">(auto-generated)</span></h2>
+
+        <div class="invoice-meta-grid mt-3">
+          <div class="form-group">
+            <label for="customer-select">Customer</label>
+            <select id="customer-select" required>
+              <option value="">Select a customer…</option>
+            </select>
+            <p class="form-hint no-print">No customer yet? <a href="customers.html">Add one</a>.</p>
+          </div>
+          <div class="form-group">
+            <label for="invoice-date">Invoice date</label>
+            <input type="date" id="invoice-date" required />
+          </div>
+          <div class="form-group">
+            <label for="due-date">Due date</label>
+            <input type="date" id="due-date" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="invoice-status">Status</label>
+          <select id="invoice-status" style="max-width: 220px;">
+            <option value="Draft">Draft</option>
+            <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <h3 class="mt-5">Items</h3>
+        <div class="table-wrapper">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th class="col-desc">Description</th>
+                <th>Qty</th>
+                <th>Unit price</th>
+                <th>Tax %</th>
+                <th>Line total</th>
+                <th class="no-print"></th>
+              </tr>
+            </thead>
+            <tbody id="items-body"></tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm mt-3 no-print" id="add-item-btn">+ Add item</button>
+
+        <div class="totals-box">
+          <div class="totals-row">
+            <span>Subtotal</span>
+            <span id="subtotal-display">$0.00</span>
+          </div>
+          <div class="totals-row">
+            <span>Tax</span>
+            <span id="tax-display">$0.00</span>
+          </div>
+          <div class="totals-row">
+            <label for="discount-input" style="margin:0; font-weight:400;">Discount</label>
+            <input type="number" id="discount-input" min="0" step="0.01" value="0" />
+          </div>
+          <div class="totals-row totals-grand">
+            <span>Total</span>
+            <span id="total-display">$0.00</span>
+          </div>
+        </div>
+
+        <div class="form-group mt-4">
+          <label for="invoice-notes">Notes <span class="label-optional">(optional)</span></label>
+          <textarea id="invoice-notes" placeholder="Payment terms, thank-you note, etc."></textarea>
+        </div>
+
+        <div class="flex gap-2 no-print mt-4">
+          <button type="submit" class="btn btn-primary" id="save-btn">Save invoice</button>
+          <a href="invoices.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer no-print">
+    <div class="container">
+      <p>Invoice Management System — a CS50 Final Project.</p>
+    </div>
+  </footer>
+
+  <!-- Template row for a new invoice item (cloned by invoice.js) -->
+  <template id="item-row-template">
+    <tr class="item-row">
+      <td class="col-desc"><input type="text" class="item-desc" placeholder="Item description" required /></td>
+      <td><input type="number" class="item-qty" min="0" step="1" value="1" required /></td>
+      <td><input type="number" class="item-price" min="0" step="0.01" value="0" required /></td>
+      <td><input type="number" class="item-tax" min="0" step="0.01" value="0" /></td>
+      <td class="line-total-cell">$0.00</td>
+      <td class="no-print"><button type="button" class="remove-item-btn" title="Remove item">✕</button></td>
+    </tr>
+  </template>
+
+  <script type="module" src="js/invoice.js"></script>
+</body>
+</html>

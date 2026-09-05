@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In — Invoice Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">🧾 InvoiceHub</a>
+      <ul class="navbar-links">
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="auth-wrap">
+    <div class="auth-card" id="login-card">
+      <h1>Log in</h1>
+      <p class="auth-subtitle">Welcome back. Enter your details to continue.</p>
+
+      <div id="login-alert"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit">
+          Log in
+        </button>
+      </form>
+
+      <p class="auth-footer-text">
+        Don't have an account? <a href="register.html">Register here</a>.
+      </p>
+    </div>
+
+    <!-- Shown instead of the form when a signed-in account is not approved -->
+    <div class="auth-card hidden" id="status-card">
+      <div class="auth-status-box">
+        <div class="auth-status-icon" id="status-icon">⏳</div>
+        <h2 id="status-title">Your account is pending approval</h2>
+        <p class="text-muted" id="status-message">
+          An administrator needs to review and approve your account before
+          you can access the invoice system. Please check back later.
+        </p>
+        <button type="button" class="btn btn-secondary mt-3" id="status-logout">
+          Log out
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Invoice Management System — a CS50 Final Project.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
