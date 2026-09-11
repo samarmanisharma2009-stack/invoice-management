@@ -22,15 +22,15 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-aut
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Replace these placeholder values with the configuration values from
-// your own Firebase project.
 const firebaseConfig = {
-  apiKey: "AIzaSyBLsqViNKWm9DgpKr2u9crAiNkDT9A_34E",
-  authDomain: "cs50-69ec4.firebaseapp.com",
-  projectId: "cs50-69ec4",
-  storageBucket: "cs50-69ec4.firebasestorage.app",
-  messagingSenderId: "1051363444911",
-  appId: "1:1051363444911:web:71309a5d94617085196c5a"
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
+
 
 // Initialize Firebase app, Authentication, and Firestore once, and export
 // them so every other module can import the same instances.
