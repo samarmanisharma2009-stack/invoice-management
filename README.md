@@ -9,9 +9,7 @@ any other backend service.
 
 ## Demo video
 
-_Add the link to your project demo video here before submitting._
-
-`[Project demo video — YOUR LINK HERE]`
+`[https://youtu.be/NlLA2F1K-jk]`
 
 ---
 
